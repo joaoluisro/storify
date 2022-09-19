@@ -1,0 +1,11 @@
+<%= stylesheet_link_tag 'base'%>
+
+<div class="wrapper-new-user">
+  <h1>Novo usuário</h1>
+  <%= render "form", user: @user %>
+  <br>
+
+  <div>
+    <%= link_to "Home", home_index_path , class: "btn btn-secondary"%>
+  </div>
+</div>

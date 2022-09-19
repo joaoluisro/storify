@@ -1,0 +1,19 @@
+<%= stylesheet_link_tag 'base'%>
+
+<div class="wrapper-new-user">
+  <h2>Parece que este usuário ainda não tem informações de contato.</h2>
+  <p>Deseja acrescentar um novo contato?</p>
+
+
+
+  <h1>informações de contato</h1>
+
+  <%= render "form", contact: @contact %>
+
+  <br>
+
+  <div>
+    <%= link_to "Home", home_index_path, class: "btn btn-secondary"%>
+  </div>
+
+</div>

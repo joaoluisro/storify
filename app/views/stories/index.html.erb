@@ -1,0 +1,28 @@
+<%= stylesheet_link_tag 'base'%>
+<div class="wrapper-stories">
+
+  <h1 class="header-stories">Contos de <%= User.find(@stories[0].user_id).name%>
+
+  </h1>
+
+  <div id="stories">
+    <% @stories.each do |story| %>
+    <div class="list-group" >
+        <%= link_to(story) do %>
+        <div class="list-group-item list-group-item-action " aria-current="true">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1"><%= story.title %></h5>
+          </div>
+          <p class="mb-1"><%= story.body[0, 50] + "..." %>.</p>
+        </div>
+        <% end %>
+      </div>
+    <% end %>
+    <%= link_to "Novo conto", new_story_path(:user_name => params[:user_name]), class: "btn btn-primary"  %>
+    <%= link_to "Home", home_index_path, class: "btn btn-secondary"  %>
+
+  </div>
+
+
+
+</div>

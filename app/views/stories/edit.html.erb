@@ -1,0 +1,14 @@
+<%= stylesheet_link_tag 'base'%>
+<div  class="wrapper-new-user" style="background-color: #e64c15; color: white; border-color: black;">
+  <h1>Editando Conto: <%= @story.title %></h1>
+
+  <%= render "form", story: @story, user_name: User.find(@story.user_id) %>
+
+  <br>
+
+  <div>
+    <%= link_to "Ler este conto", @story, class: "btn btn-primary" %>
+    <%= link_to "Retornar a coleção de contos", stories_path(:user_name => User.find(@story.user_id).name ) , class: "btn btn-secondary"%>
+  </div>
+
+</div>

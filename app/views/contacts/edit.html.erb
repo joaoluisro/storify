@@ -1,0 +1,9 @@
+<%= stylesheet_link_tag 'base'%>
+<div class="wrapper-edit-form">
+  <h1>Editando contato</h1>
+
+  <%= render "form", contact: @contact, user_name: User.find(@contact.user_id) %>
+
+  <br>
+
+</div>

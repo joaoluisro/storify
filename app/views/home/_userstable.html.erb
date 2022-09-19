@@ -1,0 +1,55 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col">Nome</th>
+      <th scope="col">Idade</th>
+      <th scope="col">Contato</th>
+      <th scope="col">Histórias</th>
+      <th scope="col">Comentários</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+
+    <tr>
+      <th scope="row"></th>
+      <td>
+        <%= button_to(user, method: :delete) do  %>
+        <i class="fa-regular fa-circle-xmark"></i>
+        <% end %>
+
+      </td>
+      <td> <%= user.name %></td>
+      <td> <%= user.age %> </td>
+
+      <% if @contacts.find_by_user_id(user.id) %>
+      <td> <%= link_to(@contacts.find_by_user_id(user.id)) do %>
+        <i class="fa-solid fa-phone"></i>
+        <% end %></td>
+      <% else %>
+      <td> <%= link_to(new_contact_path(:user_name => user.name)) do %>
+        <i class="fa-solid fa-phone"></i>
+        <% end %></td>
+      <% end %>
+
+      <% if @stories.find_by_user_id(user.id) %>
+      <td> <%= link_to(stories_url(:user_name => user.name)) do %>
+        <i class="fa-solid fa-book"></i>
+        <% end %></td>
+      <% else %>
+      <td> <%= link_to(new_story_path(:user_name => user.name)) do %>
+        <i class="fa-solid fa-book"></i>
+        <% end %></td>
+      <% end %>
+
+      <td> <%= link_to() do %>
+            <i class="fa-regular fa-comments"></i>
+        <% end %></td>
+
+    </tr>
+    <% end %>
+
+  </tbody>
+</table>

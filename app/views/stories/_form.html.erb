@@ -1,0 +1,39 @@
+<%= form_with(model: story) do |form| %>
+  <% if story.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(story.errors.count, "error") %> prohibited this story from being saved:</h2>
+
+      <ul>
+        <% story.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div>
+    <%= form.label :título, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :corpo, style: "display: block" %>
+    <%= form.text_area :body, :rows => 10, :cols => 30 %>
+  </div>
+
+
+  <div>
+    <%= form.label :Nome_de_usuário, style: "display: block" %>
+    <% if params[:user_name] %>
+    <%= form.text_field :user_name, value: params[:user_name] %>
+    <% else %>
+    <%= form.text_field :user_name, value: user_name.name %>
+    <% end %>
+  </div>
+  <br>
+
+  <div>
+    <%= form.submit "Salvar Conto"%>
+  </div>
+<% end %>

@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @story %>
+
+<div style="  margin-left: 400px;
+  margin-right: 400px;">
+  <%= link_to "Editar este conto", edit_story_path(@story),  class: "btn btn-primary"%>
+  <%= link_to "Voltar aos contos", stories_path(:user_name => User.find(@story.user_id).name), class: "btn btn-danger" %>
+
+  <%= button_to "Remover conto", @story, method: :delete, :user_name => User.find(@story.user_id).name %>
+</div>

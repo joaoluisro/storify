@@ -1,0 +1,23 @@
+
+
+<nav id="mynav">
+  <h1 class="display-1" id="page-title" style="font-weight: bold;">Storify.</h1>
+
+</nav>
+<script>
+  nav = document.getElementById("mynav");
+  header = nav.querySelector(".display-1");
+  function unfade(element) {
+    var op = 0.1;
+    element.style.display = 'block';
+    var timer = setInterval(function () {
+        if (op >= 1){
+            clearInterval(timer);
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op += op * 0.02;
+    }, 10);
+}
+  unfade(header);
+</script>

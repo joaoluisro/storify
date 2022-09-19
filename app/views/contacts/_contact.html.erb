@@ -1,0 +1,17 @@
+<div id="<%= dom_id contact %>">
+  <p>
+    <strong>Email:</strong>
+    <%= contact.email %>
+  </p>
+
+  <p>
+    <strong>Telefone:</strong>
+    <%= contact.cellphone %>
+  </p>
+
+  <p>
+    <strong>Pertence a:</strong>
+    <%= @users.find(contact.user_id).name %>
+  </p>
+
+</div>
